@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   @media (max-width: 1280px) {
     height: 50vw;
   }
-  
+  overflow: hidden;
   z-index: -1;
 `;
 
