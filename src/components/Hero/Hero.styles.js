@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 // Images
-import bg from "../../images/low-poly.svg";
 import wavesTop from "../../images/waves-top.svg";
 import wavesBottom from "../../images/waves-bottom.svg";
 
@@ -10,13 +9,19 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   max-height: 700px;
-  background-image: url(${bg});
-  background-size: cover;
-  background-position: center;
-
+  margin-bottom: -5%;
   @media (max-width: 1280px) {
     height: 50vw;
   }
+  
+  z-index: -1;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  background: #111111;
 `;
 
 export const Content = styled.div`
@@ -32,13 +37,12 @@ export const Content = styled.div`
     font-size: min(17vw, 225px);
     line-height: 1;
     font-style: italic;
-    /* font-weight: 400; */
     text-transform: uppercase;
   }
 
   .name {
     position: absolute;
-    left: 6%;
+    left: 7%;
     top: 10%;
 
     @media (max-width: 680px) {
@@ -78,12 +82,11 @@ export const Cutout = styled.img`
   position: absolute;
   width: 40%;
   max-width: 500px;
-  right: 4%;
-  /* transform: translate(50%, 0); */
+  right: 3%;
 
   @media (max-width: 680px) {
     width: 70%;
-    top: -10%;
     right: -15%;
+    top: -10%;
   }
 `;
