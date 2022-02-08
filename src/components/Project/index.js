@@ -1,13 +1,16 @@
 import React from "react";
 
 // Styles
-import { Wrapper, Content } from "./Project.styles";
+import { Wrapper, Image, Content } from "./Project.styles";
 
 const Project = ({ title, desc }) => {
   return (
-    <Wrapper>
+    <Wrapper className="proj">
+      <Image></Image>
       <Content>
-        <div className="title-container"><h1>{title}</h1></div>
+        <div className="title-container">
+          <h1>{title}</h1>
+        </div>
         <p>{desc}</p>
       </Content>
     </Wrapper>

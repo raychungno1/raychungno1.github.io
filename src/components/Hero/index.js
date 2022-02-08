@@ -14,10 +14,9 @@ import {
   Cutout,
 } from "./Hero.styles";
 
-// import
 const Hero = () => {
   const el = useRef();
-
+  
   useEffect(() => {
     const bg = el.current.querySelector(".bg");
     const content = el.current.querySelector(".content");
@@ -44,6 +43,8 @@ const Hero = () => {
       content.style.top = `${value * 0.4}px`;
       waveB.style.bottom = `${value * -0.6}px`;
       bg.style.top = `${value * 0.9}px`;
+      context.fillStyle = "#111111";
+      context.fillRect(0, 0, canvas.width, canvas.height);
     });
 
     const canvas = el.current.querySelector("#matrix");
@@ -83,10 +84,8 @@ const Hero = () => {
           Math.floor(Math.random() * alphabet.length)
         );
 
-        if (Math.random() > 0) {
-          context.fillText(text, i * colSize, rainDrops[i] * colSize);
-          rainDrops[i]++;
-        }
+        context.fillText(text, i * colSize, rainDrops[i] * colSize);
+        rainDrops[i]++;
 
         if (rainDrops[i] * colSize > canvas.height) {
           context.fillStyle = "#111111";
