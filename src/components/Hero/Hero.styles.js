@@ -9,12 +9,12 @@ export const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
   max-height: 700px;
-  margin-bottom: -5%;
+  overflow: hidden;
+  z-index: -1;
+
   @media (max-width: 1280px) {
     height: 50vw;
   }
-  overflow: hidden;
-  z-index: -1;
 `;
 
 export const Background = styled.div`

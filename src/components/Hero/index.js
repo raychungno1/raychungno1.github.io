@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Images
 import cutoutImg from "../../images/cutout.png";
@@ -16,12 +17,13 @@ import {
 
 const Hero = () => {
   const el = useRef();
-  
+
   useEffect(() => {
     const bg = el.current.querySelector(".bg");
     const content = el.current.querySelector(".content");
     const waveB = el.current.querySelector(".waveBottom");
     const waveT = el.current.querySelector(".waveTop");
+    gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       defaults: { duration: 1, ease: "power4.inOut" },
@@ -36,21 +38,42 @@ const Hero = () => {
       waveT.style.removeProperty("transform");
       content.style.removeProperty("transform");
       waveB.style.removeProperty("transform");
+
+      // gsap.to(waveT, {
+      //   scrollTrigger: {
+      //     scrub: 1,
+      //   },
+      //   y: 10,
+      // });
+
+      gsap.to(content, {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        y: 200,
+      });
+
+      gsap.to(waveB, {
+        scrollTrigger: {
+          scrub: 1,
+        },
+        y: 400,
+      });
     }, 1000);
 
-    window.addEventListener("scroll", () => {
-      let value = window.scrollY;
-      content.style.top = `${value * 0.4}px`;
-      waveB.style.bottom = `${value * -0.6}px`;
-      bg.style.top = `${value * 0.9}px`;
-      context.fillStyle = "#111111";
-      context.fillRect(0, 0, canvas.width, canvas.height);
-    });
+    // window.addEventListener("scroll", () => {
+    //   let value = window.scrollY;
+    //   content.style.top = `${value * 0.4}px`;
+    //   waveB.style.bottom = `${value * -0.6}px`;
+    //   bg.style.top = `${value * 0.9}px`;
+    //   context.fillStyle = "#111111";
+    //   context.fillRect(0, 0, canvas.width, canvas.height);
+    // });
 
     const canvas = el.current.querySelector("#matrix");
     const context = canvas.getContext("2d");
     canvas.width = bg.offsetWidth;
-    canvas.height = bg.offsetHeight;
+    canvas.height = bg.offsetHeight * 1.25;
     context.fillStyle = "#111111";
     context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -72,7 +95,17 @@ const Hero = () => {
 
     window.addEventListener("resize", () => {
       canvas.width = bg.offsetWidth;
-      canvas.height = bg.offsetHeight;
+      canvas.height = bg.offsetHeight * 1.25;
+      const columns = canvas.width / colSize;
+      const rainDrops = [];
+      const fontSizes = [];
+
+      for (let x = 0; x < columns; x++) {
+        rainDrops[x] = Math.floor((Math.random() * canvas.height) / colSize);
+        fontSizes[x] = Math.floor(Math.random() * 24) + 8;
+      }
+      context.fillStyle = "#111111";
+      context.fillRect(0, 0, canvas.width, canvas.height);
     });
 
     const draw = () => {

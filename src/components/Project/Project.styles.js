@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 import stars from "../../images/stars.jpg";
 
+export const Header = styled.div`
+
+`;
+
 export const Image = styled.div`
   background-image: url(${stars});
   background-size: cover;
   background-position: bottom;
-  /* background: gray; */
   height: 100%;
   width: 100%;
   position: absolute;
@@ -16,7 +19,6 @@ export const Image = styled.div`
 `;
 
 export const Content = styled.div`
-  /* height: 75%; */
   padding: 1rem 1.5rem;
   text-align: center;
   background: linear-gradient(
@@ -42,13 +44,30 @@ export const Content = styled.div`
     margin-bottom: 1rem;
   }
 
+  .logos {
+    color: white;
+    border-top: 4px solid #976322;
+    border-bottom: 4px solid #976322;
+    width: max-content;
+    margin: 0 auto;
+    padding: .25rem 1rem;
+  }
+
   @media (hover) and (min-width: 680px) {
-    transform: translateY(50%);
-    transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    .title-container {
+      transform: translateY(120px);
+      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
 
     > *:not(.title-container) {
+      transform: translateY(120px);
       opacity: 0;
-      transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
+      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1),
+        opacity 1400ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    ${Image} {
+      transform: translateY(-4%);
     }
   }
 `;
@@ -64,7 +83,6 @@ export const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  position: relative;
 
   @media (min-width: 680px) {
     height: 300px;
@@ -73,15 +91,16 @@ export const Wrapper = styled.div`
   @media (hover: hover) {
     :hover {
       ${Content} {
+      }
+      .title-container {
         transform: translateY(0);
       }
 
       ${Content} > *:not(.title-container) {
-        opacity: 1;
-      }
+        opacity: 0.8;
+        transform: translateY(0);
 
-      ${Image} {
-        transform: translateY(-4%);
+        transition-delay: 50ms;
       }
     }
   }

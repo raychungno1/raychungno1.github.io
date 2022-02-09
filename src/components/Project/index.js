@@ -12,6 +12,7 @@ const Project = ({ title, desc }) => {
           <h1>{title}</h1>
         </div>
         <p>{desc}</p>
+        <div className="logos">Projects</div>
       </Content>
     </Wrapper>
   );
