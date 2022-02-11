@@ -6,7 +6,7 @@ import { Wrapper, Image, Content } from "./Project.styles";
 const Project = ({ title, desc, img, techStack }) => {
   return (
     <Wrapper className="proj">
-      <Image backdrop={img}></Image>
+      <Image src={img}></Image>
       <Content>
         <div className="title-container">
           <h1>{title}</h1>

@@ -1,17 +1,13 @@
 import styled from "styled-components";
 
-import stars from "../../images/stars.jpg";
-
-export const Image = styled.div`
-  background-image: ${({ backdrop }) => `url(${backdrop ? backdrop : stars})`};
-  background-size: cover;
-  background-position: center;
+export const Image = styled.img`
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: -1;
   transform: scale(1.1);
-
+  object-fit: cover;
+  
   transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
 `;
 

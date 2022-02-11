@@ -36,7 +36,7 @@ const Home = () => {
           img={peerEval}
         />
         <Project
-          title={"DataStructs"}
+          title={"Data Structs"}
           desc={
             "A library of data structures implemented in C, including linked lists, search trees, graphs, and more."
           }
