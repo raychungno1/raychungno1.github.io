@@ -5,7 +5,7 @@ export const Image = styled.img`
   width: 100%;
   position: absolute;
   z-index: -1;
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
   object-fit: cover;
   
   transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -23,6 +23,7 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
 
   .title-container {
     margin-bottom: 1rem;
