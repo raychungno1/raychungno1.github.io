@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Images
 import cutoutImg from "../../images/cutout.png";
@@ -23,7 +22,6 @@ const Hero = () => {
     const content = el.current.querySelector(".content");
     const waveB = el.current.querySelector(".waveBottom");
     const waveT = el.current.querySelector(".waveTop");
-    gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({
       defaults: { duration: 1, ease: "power4.inOut" },
@@ -38,37 +36,7 @@ const Hero = () => {
       waveT.style.removeProperty("transform");
       content.style.removeProperty("transform");
       waveB.style.removeProperty("transform");
-
-      // gsap.to(waveT, {
-      //   scrollTrigger: {
-      //     scrub: 1,
-      //   },
-      //   y: 10,
-      // });
-
-      gsap.to(content, {
-        scrollTrigger: {
-          scrub: 1,
-        },
-        y: 200,
-      });
-
-      gsap.to(waveB, {
-        scrollTrigger: {
-          scrub: 1,
-        },
-        y: 400,
-      });
     }, 1000);
-
-    // window.addEventListener("scroll", () => {
-    //   let value = window.scrollY;
-    //   content.style.top = `${value * 0.4}px`;
-    //   waveB.style.bottom = `${value * -0.6}px`;
-    //   bg.style.top = `${value * 0.9}px`;
-    //   context.fillStyle = "#111111";
-    //   context.fillRect(0, 0, canvas.width, canvas.height);
-    // });
 
     const canvas = el.current.querySelector("#matrix");
     const context = canvas.getContext("2d");
@@ -140,7 +108,7 @@ const Hero = () => {
 
     setInterval(draw, 150);
     setInterval(fadeOut, 30);
-  });
+  }, []);
 
   return (
     <Wrapper ref={el}>

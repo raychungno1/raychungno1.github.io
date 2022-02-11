@@ -6,33 +6,41 @@ import Hero from "./Hero";
 import Featured from "./Featured";
 import Project from "./Project";
 
+// Images
+import aiMl from "../images/ai-ml.png";
+import peerEval from "../images/peer-eval.jpg";
+import dataStructs from "../images/data-structs.jpg";
+
 const Home = () => {
 
   useEffect(() => {
     gsap.from(".proj", { stagger: 0.05, opacity: 0, x: 100, duration: 1, ease: "power4.out", delay: 1 });
-  });
+  }, []);
 
   return (
     <>
       <Hero />
       <Featured>
         <Project
-          title={"This Is A Long Name"}
+          title={"AI & ML Visualizer"}
           desc={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "A showcase of popular Artificial Intelligence and Machine Learning algorithms."
           }
+          img={aiMl}
         />
         <Project
-          title={"Something Awesome"}
+          title={"Peer Evaluation Tool"}
           desc={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "A feedback tool for group projects. Use username \"s1@s.com\" and password \"123456\"."
           }
+          img={peerEval}
         />
         <Project
-          title={"Hello"}
+          title={"DataStructs"}
           desc={
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "A library of data structures implemented in C, including linked lists, search trees, graphs, and more."
           }
+          img={dataStructs}
         />
       </Featured>
     </>

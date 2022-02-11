@@ -2,30 +2,31 @@ import styled from "styled-components";
 
 import stars from "../../images/stars.jpg";
 
-export const Header = styled.div`
-
-`;
-
 export const Image = styled.div`
-  background-image: url(${stars});
+  background-image: ${({ backdrop }) => `url(${backdrop ? backdrop : stars})`};
   background-size: cover;
-  background-position: bottom;
+  background-position: center;
   height: 100%;
   width: 100%;
   position: absolute;
   z-index: -1;
+  transform: scale(1.1);
 
   transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
 `;
 
 export const Content = styled.div`
   padding: 1rem 1.5rem;
+  width: 100%;
   text-align: center;
   background: linear-gradient(
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.3) 20%,
-    rgba(0, 0, 0, 0.8) 100%
+    rgba(0, 0, 0, 0.5) 10%,
+    rgba(0, 0, 0, 0.9) 100%
   );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   .title-container {
     margin-bottom: 1rem;
@@ -38,7 +39,6 @@ export const Content = styled.div`
 
   p {
     line-height: 1.5;
-    font-weight: lighter;
     color: rgba(255, 255, 255, 0.8);
     display: block;
     margin-bottom: 1rem;
@@ -46,28 +46,26 @@ export const Content = styled.div`
 
   .logos {
     color: white;
-    border-top: 4px solid #976322;
-    border-bottom: 4px solid #976322;
+    border-top: 2px solid #976322;
+    border-bottom: 2px solid #976322;
+    /* border-top: 2px solid white;
+    border-bottom: 2px solid white; */
     width: max-content;
     margin: 0 auto;
-    padding: .25rem 1rem;
+    padding: 0.25rem 1rem;
+    height: 2rem;
   }
 
   @media (hover) and (min-width: 680px) {
-    .title-container {
-      transform: translateY(120px);
-      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
+    transform: translateY(65%);
+    transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
 
+    p {
+      min-height: 5em;
+    }
     > *:not(.title-container) {
-      transform: translateY(120px);
       opacity: 0;
-      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1),
-        opacity 1400ms cubic-bezier(0.19, 1, 0.22, 1);
-    }
-
-    ${Image} {
-      transform: translateY(-4%);
+      transition: opacity 1400ms cubic-bezier(0.19, 1, 0.22, 1);
     }
   }
 `;
@@ -88,19 +86,19 @@ export const Wrapper = styled.div`
     height: 300px;
   }
 
-  @media (hover: hover) {
+  @media (hover: hover) and (min-width: 680px) {
     :hover {
       ${Content} {
-      }
-      .title-container {
         transform: translateY(0);
       }
 
       ${Content} > *:not(.title-container) {
         opacity: 0.8;
-        transform: translateY(0);
-
         transition-delay: 50ms;
+      }
+
+      ${Image} {
+        transform: translateY(-4%) scale(1.1);
       }
     }
   }
