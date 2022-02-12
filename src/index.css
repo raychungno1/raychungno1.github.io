@@ -34,3 +34,7 @@ h1, h2, p {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+a, a:hover {
+  text-decoration: none;
+}

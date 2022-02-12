@@ -5,9 +5,8 @@ export const Image = styled.img`
   width: 100%;
   position: absolute;
   z-index: -1;
-  /* transform: scale(1.1); */
   object-fit: cover;
-  
+
   transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
 `;
 
@@ -45,12 +44,13 @@ export const Content = styled.div`
     color: white;
     border-top: 2px solid #976322;
     border-bottom: 2px solid #976322;
-    /* border-top: 2px solid white;
-    border-bottom: 2px solid white; */
-    width: max-content;
     margin: 0 auto;
     padding: 0.25rem 1rem;
-    height: 2rem;
+    height: 2.5rem;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (hover) and (min-width: 680px) {
@@ -60,6 +60,7 @@ export const Content = styled.div`
     p {
       min-height: 5em;
     }
+
     > *:not(.title-container) {
       opacity: 0;
       transition: opacity 1400ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -70,7 +71,6 @@ export const Content = styled.div`
 export const Wrapper = styled.div`
   height: 200px;
   width: 100%;
-  border-radius: 0.5em;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
     0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
     0 16px 16px rgba(0, 0, 0, 0.1);
@@ -99,4 +99,9 @@ export const Wrapper = styled.div`
       }
     }
   }
+`;
+
+export const Tech = styled.img`
+  height: 100%;
+  display: block;
 `;
