@@ -1,0 +1,93 @@
+.exp__container {
+  flex: 0.65;
+  height: 100%;
+  display: flex;
+}
+
+.timeline {
+  flex: 0.2;
+  min-width: 150px;
+  width: 100%;
+  height: 100%;
+}
+
+.progress-bar {
+  position: relative;
+  margin-left: 8%;
+  height: 100%;
+  border-left: 5px solid #363840;
+}
+
+.progress-bar::before {
+  position: absolute;
+  left: -5px;
+  top: -10em;
+  width: 5px;
+  height: var(--height);
+  background-color: #976322;
+  content: "";
+  transition: 700ms all cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.progress-bar::after {
+  --height: 20em;
+  position: absolute;
+  left: -5px;
+  bottom: calc(-1 * var(--height));
+  width: 5px;
+  height: var(--height);
+  background-color: #363840;
+  content: "";
+}
+
+.progress-bar__item {
+  position: relative;
+  margin: 1em 0 1em 1em;
+  color: rgb(255, 255, 255, 0.6);
+  font-size: 1.25em;
+  font-weight: bold;
+  letter-spacing: 0.1rem;
+  z-index: 1;
+}
+
+.progress-bar__item.last,
+.progress-bar__item:hover {
+  color: rgb(255, 255, 255);
+}
+
+.progress-bar__item.last span {
+  display: block;
+  transform-origin: left;
+  transform: scale(1.2);
+  transition: 700ms transform cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.progress-bar__item::before {
+  content: "";
+  position: absolute;
+  left: calc(-0.5em - 20.2px);
+  top: calc(50% - 8px);
+  width: 15px;
+  height: 15px;
+  background: #363840;
+  border-radius: 2rem;
+  transition: 700ms all cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.progress-bar__item.selected::before {
+  background: #976322;
+}
+
+.progress-bar__item.selected.last::before {
+  transform: scale(1.5);
+}
+
+.timeline__info {
+  position: relative;
+  margin: 1rem;
+  min-height: 200px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  z-index: 1;
+}

@@ -19,11 +19,14 @@ import js from "../images/logos/js.svg"
 import linux from "../images/logos/linux.svg"
 import postgresql from "../images/logos/postgresql.svg"
 import rails from "../images/logos/rails.svg"
+import Intro from "./Intro";
 
 const Home = () => {
 
   useEffect(() => {
-    gsap.from(".proj", { stagger: 0.05, opacity: 0, x: 100, duration: 1, ease: "power4.out", delay: 1 });
+    const tl = gsap.timeline({defaults: {opacity: 0, duration: 1, ease: "power1.out"}})
+    tl.from(".proj", { stagger: 0.05, x: 100, ease: "power4.out", delay: 1 });
+    tl.from(".intro__container", {}, "<");
   }, []);
 
   return (
@@ -42,7 +45,7 @@ const Home = () => {
         <Project
           title={"Peer Evaluation Tool"}
           desc={
-            "A feedback tool for projects. Use username \"s1@s.com\" and password \"123456\". Site may take a while on initial load."
+            "A feedback tool for projects. Use username \"s1@s.com\" and password \"123456\"."
           }
           img={peerEval}
           techStack={[rails, jquery, postgresql, heroku]}
@@ -58,6 +61,7 @@ const Home = () => {
           link={"https://github.com/raychungno1/DataStructs"}
         />
       </Featured>
+      <Intro />
     </>
   );
 };

@@ -14,8 +14,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #1d1c21;
-  height: 300vh;
   overflow-x: hidden;
+  height: 150vh;
 }
 
 img {
