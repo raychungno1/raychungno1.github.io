@@ -20,7 +20,7 @@
   opacity: 0.8;
   margin-bottom: 1rem;
   padding-top: 1em;
-  z-index: 1;
+  z-index: 2;
 }
 
 .intro__row {
@@ -35,7 +35,7 @@
   position: relative;
   text-align: center;
   opacity: 1;
-  z-index: 1;
+  z-index: 2;
   flex: .35;
   max-width: 400px;
   margin: 1.5em auto;

@@ -7,7 +7,7 @@ function Experience({ experience }) {
   useEffect(() => {
     document
       .querySelector(".progress-bar")
-      .style.setProperty("--height", `${10.75 + 2.75 * lastSelected}em`);
+      .style.setProperty("--height", `${2.75 + 2.75 * lastSelected}em`);
   }, [lastSelected]);
 
   // const progressStyle = document.querySelector(".progress-bar").style;

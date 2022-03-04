@@ -1,18 +1,27 @@
 .exp__container {
   flex: 0.65;
   height: 100%;
-  display: flex;
+}
+
+.exp__container::before {
+  position: absolute;
+  left: 11.6%;
+  top: -0rem;
+  width: 5px;
+  height: 10rem;
+  background-color: #976322;
+  content: "";
+  z-index: 1;
 }
 
 .timeline {
-  position: relative;
-  flex: 0.2;
+  position: absolute;
   min-width: 150px;
-  width: 100%;
+  width: 20%;
   height: 100%;
   background: linear-gradient(90deg, rgba(103,107,128,1) 0%, rgba(0,0,0,0) 100%);
   min-height: 200px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .progress-bar {
@@ -23,26 +32,15 @@
   z-index: 1;
 }
 
-.progress-bar::before {
+.progress-bar::after {
   position: absolute;
   left: -5px;
-  top: -10em;
+  top: -2em;
   width: 5px;
   height: var(--height);
   background-color: #976322;
   content: "";
   transition: 700ms all cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.progress-bar::after {
-  --height: 20em;
-  position: absolute;
-  left: -5px;
-  bottom: calc(-1 * var(--height));
-  width: 5px;
-  height: var(--height);
-  background-color: #363840;
-  content: "";
 }
 
 .progress-bar__item {
@@ -52,7 +50,7 @@
   font-size: 1.25em;
   font-weight: bold;
   letter-spacing: 0.1rem;
-  z-index: 2;
+  z-index: 100;
 }
 
 .progress-bar__item.last,
@@ -89,13 +87,9 @@
 }
 
 .timeline__info {
-  flex: 0.9;
   position: relative;
-  /* margin: 1rem; */
-  margin-left: -20%;
   min-height: 200px;
-  /* background-color: rgba(255, 255, 255, 0.15); */
-  z-index: 0;
+  z-index: 1;
 
   display: flex;
   overflow-x: auto;
@@ -106,23 +100,13 @@
 .timeline__info::-webkit-scrollbar {
   width: 0;
   background: transparent;
-  /* width: 10px;
-  height: 10px; */
 }
-/* .timeline__info::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 10px;
-}
-.timeline__info::-webkit-scrollbar-track {
-  background: transparent;
-} */
-
 
 .timeline__info > div {
   scroll-snap-align: center;
   flex-shrink: 0;
   width: 70%;
-  margin: 0 40px;
+  margin-left: 40px;
   background: #eee;
   position: relative;
   
