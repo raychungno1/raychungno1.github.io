@@ -5,13 +5,16 @@ import "./Experience.css";
 function Experience({ experience }) {
   const [lastSelected, setLastSelected] = useState(0);
 
+  const select = (i, id) => {
+    setLastSelected(i)
+    document
+      .getElementById(id)
+      .scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
   useEffect(() => {
     document
       .querySelector(".progress-bar")
       .style.setProperty("--height", `${2.75 + 2.75 * lastSelected}em`);
-    document
-      .getElementById(experience[lastSelected].short)
-      .scrollIntoView({ block: "nearest", behavior: "smooth" });
   }, [lastSelected, experience]);
 
   return (
@@ -23,7 +26,7 @@ function Experience({ experience }) {
               className={`progress-bar__item ${
                 i <= lastSelected ? "selected" : ""
               } ${i === lastSelected ? "last" : ""}`}
-              onClick={() => setLastSelected(i)}
+              onClick={() => select(i, exp.short)}
             >
               <span>{exp.short}</span>
             </div>
