@@ -1,0 +1,19 @@
+.event__title {
+  border-bottom: 2px solid #976322;
+  font-size: clamp(1.5em, 2vw, 2em);
+}
+
+.event__name {
+  font-size: 1rem;
+  font-weight: 400;
+  color: white;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+.event__name span {
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  color: #976322;
+}

@@ -1,7 +1,7 @@
 .intro__container {
   background-color: #676b80;
   position: relative;
-  overflow: hidden;
+  padding-bottom: 5em;
 }
 
 .intro__border {
@@ -28,7 +28,7 @@
   max-width: 750px;
   margin: 0 auto;
   justify-content: space-between;
-  min-height: 200px;
+  min-height: 250px;
 }
 
 .intro__info {
@@ -55,6 +55,6 @@
 
   .intro__info {
     text-align: right;
-    margin: 1em;
+    margin: .5em .5em 0 0;
   }
 }

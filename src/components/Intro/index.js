@@ -12,11 +12,30 @@ function Intro() {
       <h1 className="intro__title">About Me</h1>
       <div className="intro__row">
         <p className="intro__info">
-          Hi, my name is Ray, and I'm a software developer. I am currently
-          studying Computer Science & Engineering at the Ohio State University.
+          My name is Ray, and I'm a software developer. I am currently
+          studying Computer Science & Engineering at the Ohio State University. I love both front-end and back-end development, and have a big interest in machine learning and AI. 
         </p>
         <Experience
-          experience={[{ short: "OSU" }, { short: "DataFest" }, { short: "Chase" }]}
+          experience={[
+            {
+              short: "OSU",
+              name: "OSU",
+              title: "Computer Science & Engineering",
+              date: "August 2019 - May 2023"
+            },
+            {
+              short: "DataFest",
+              name: "DataFest",
+              title: "Winner | Best Visualization",
+              date: "March 2021"
+            },
+            {
+              short: "Chase",
+              name: "JPMorgan Chase",
+              title: "Software Engineer Intern",
+              date: "June - August 2022"
+            },
+          ]}
         />
       </div>
     </div>

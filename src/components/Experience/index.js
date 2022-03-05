@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TimelineEvent from "../TimelineEvent";
 import "./Experience.css";
 
 function Experience({ experience }) {
@@ -8,10 +9,11 @@ function Experience({ experience }) {
     document
       .querySelector(".progress-bar")
       .style.setProperty("--height", `${2.75 + 2.75 * lastSelected}em`);
-  }, [lastSelected]);
+    document
+      .getElementById(experience[lastSelected].short)
+      .scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }, [lastSelected, experience]);
 
-  // const progressStyle = document.querySelector(".progress-bar").style;
-  // progressStyle.setProperty("--height", "calc(10vw + lastSelected * 2em)");
   return (
     <div className="exp__container">
       <div className="timeline">
@@ -29,11 +31,11 @@ function Experience({ experience }) {
         </div>
       </div>
       <div className="timeline__info">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
+        {experience.map((exp) => (
+          <div id={exp.short} className="timeline__event">
+            <TimelineEvent {...exp} />
+          </div>
+        ))}
       </div>
     </div>
   );
