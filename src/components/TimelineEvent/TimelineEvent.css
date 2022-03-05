@@ -17,3 +17,16 @@
   font-weight: bold;
   color: #976322;
 }
+
+.event__list {
+  text-align: left;
+  width: 100%;
+  color: white;
+  opacity: 0.8;
+}
+
+.event__list li {
+  list-style-type: '- ';
+  margin: 0.5em auto;
+  font-weight: lighter;
+}

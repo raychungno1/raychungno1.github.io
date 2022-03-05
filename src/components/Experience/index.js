@@ -11,11 +11,12 @@ function Experience({ experience }) {
       .getElementById(id)
       .scrollIntoView({ block: "nearest", behavior: "smooth" });
   }
+
   useEffect(() => {
     document
       .querySelector(".progress-bar")
       .style.setProperty("--height", `${2.75 + 2.75 * lastSelected}em`);
-  }, [lastSelected, experience]);
+  }, [lastSelected]);
 
   return (
     <div className="exp__container">
