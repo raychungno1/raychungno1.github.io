@@ -14,8 +14,11 @@ const Project = ({ title, desc, img, techStack, link }) => {
           </div>
           <p>{desc}</p>
           <div className="logos">
-            {techStack.map((tech) => (
-              <Tech src={tech} />
+            {techStack.map(([name, img]) => (
+              <div className="tooltip" key={name} >
+                <Tech src={img} alt="" />
+                <span className="tooltip__text">{name}</span>
+              </div>
             ))}
           </div>
         </Content>

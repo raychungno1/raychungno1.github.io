@@ -24,6 +24,7 @@ function Experience({ experience }) {
         <div className="progress-bar">
           {experience.map((exp, i) => (
             <div
+              key={exp.short}
               className={`progress-bar__item ${
                 i <= lastSelected ? "selected" : ""
               } ${i === lastSelected ? "last" : ""}`}
@@ -36,7 +37,7 @@ function Experience({ experience }) {
       </div>
       <div className="timeline__info">
         {experience.map((exp) => (
-          <div id={exp.short} className="timeline__event">
+          <div key={exp.short} id={exp.short} className="timeline__event">
             <TimelineEvent {...exp} />
           </div>
         ))}

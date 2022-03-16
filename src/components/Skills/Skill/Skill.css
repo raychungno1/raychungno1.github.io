@@ -1,8 +1,7 @@
 .skill__logo {
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 110px;
   margin: 0 auto;
-  /* background-color: #3d404d; */
   margin-bottom: -1rem;
   display: flex;
   align-items: center;
@@ -15,6 +14,17 @@
 
 .skill__title {
   opacity: 0.8;
-  font-size: 2.75em;
+  font-size: 2rem;
   text-align: center;
+}
+
+@media (min-width: 1000px) {
+  .skill__logo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .skill__title {
+    font-size: 2.75rem;
+  }
 }

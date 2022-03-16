@@ -1,15 +1,42 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Intro.css";
 import Experience from "./Experience";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fromDefaults, toDefaults, isElementInViewport } from "../../helpers";
 
 // Images
 import wavesTop from "../../images/waves-top.svg";
 
 function Intro() {
+  gsap.registerPlugin(ScrollTrigger);
+  const ref = useRef();
+
+  useEffect(() => {
+    const element = ref.current;
+    gsap.from(element, { opacity: 0, delay: 1 });
+    
+    const title = element.querySelector(".intro__title");
+    if (!isElementInViewport(title)) {
+        gsap.fromTo(title, fromDefaults, {
+          ...toDefaults,
+          opacity: 0.8,
+          scrollTrigger: { trigger: title, start: "bottom bottom" },
+        });
+    }
+    const info = element.querySelector(".intro__info");
+    if (!isElementInViewport(info)) {
+        gsap.fromTo(info, fromDefaults, {
+          ...toDefaults,
+          scrollTrigger: { trigger: info, start: "20% bottom" },
+        });
+    }
+  }, []);
+
   return (
-    <div className="intro__container">
-      <img src={wavesTop} alt="wave-top" class="intro__border" />
-      <h1 className="intro__title">About Me</h1>
+    <div className="intro__container" ref={ref}>
+      <img src={wavesTop} alt="wave-top" className="intro__border" />
+      <h1 className="intro__title title">About Me</h1>
       <div className="intro__row">
         <div className="intro__info">
           <p>

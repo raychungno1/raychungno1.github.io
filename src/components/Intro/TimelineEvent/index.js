@@ -10,7 +10,7 @@ function TimelineEvent({ title, name, date, info }) {
       </h3>
       <ul className="event__list">
         {info.map((i) => (
-          <li>{i}</li>
+          <li key={i}>{i}</li>
         ))}{" "}
       </ul>
     </>

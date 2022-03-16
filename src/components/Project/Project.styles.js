@@ -22,7 +22,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  overflow: hidden;
 
   .title-container {
     margin-bottom: 1rem;
@@ -38,7 +37,7 @@ export const Content = styled.div`
     color: rgba(255, 255, 255, 0.8);
     display: block;
     margin-bottom: 1rem;
-    font-family: 'Source Code Pro', monospace;
+    font-family: "Source Code Pro", monospace;
   }
 
   .logos {
@@ -52,6 +51,32 @@ export const Content = styled.div`
     gap: 0.5em;
     align-items: center;
     justify-content: center;
+  }
+
+  .tooltip {
+    position: relative;
+    height: 100%;
+  }
+
+  .tooltip__text {
+    opacity: 0;
+    font-family: "Source Code Pro", monospace;
+    background-color: #1d1c21;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 2;
+    width: 110px;
+    bottom: 110%;
+    left: 50%;
+    margin-left: -55px;
+    transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .tooltip:hover .tooltip__text {
+    opacity: 1;
   }
 
   @media (hover) and (min-width: 680px) {
@@ -70,6 +95,7 @@ export const Content = styled.div`
 `;
 
 export const Wrapper = styled.div`
+  position: relative;
   height: 200px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),

@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Skill from "./Skill";
 import "./Skills.css";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { fromDefaults, toDefaults, isElementInViewport } from "../../helpers";
 
 // Images
 import asm from "../../images/logos/asm.png";
@@ -22,10 +25,27 @@ import sql from "../../images/logos/sql.svg";
 import swift from "../../images/logos/swift.svg";
 
 function Skills() {
+  gsap.registerPlugin(ScrollTrigger);
+  const ref = useRef();
+
+  useEffect(() => {
+    const element = ref.current;
+    gsap.from(element, { opacity: 0, delay: 1 });
+    
+    const title = element.querySelector(".skills__title");
+    if (!isElementInViewport(title)) {
+        gsap.fromTo(title, fromDefaults, {
+          ...toDefaults,
+          opacity: 0.8,
+          scrollTrigger: { trigger: title, start: "bottom bottom" },
+        });
+    }
+  }, []);
+
   return (
-    <div className="skills">
+    <div className="skills" ref={ref}>
       <div className="container">
-        <h1 className="skills__title">Skills</h1>
+        <h1 className="skills__title title">Skills</h1>
         <div className="skills__grid">
           <Skill img={js} title="JavaScript" />
           <Skill img={java} title="Java" />
