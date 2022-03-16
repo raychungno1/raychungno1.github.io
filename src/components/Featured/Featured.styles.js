@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
     font-size: 2rem;
     letter-spacing: 0.5rem;
     opacity: 0.8;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
   }
 
   

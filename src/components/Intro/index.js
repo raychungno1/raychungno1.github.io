@@ -1,6 +1,6 @@
 import React from "react";
 import "./Intro.css";
-import Experience from "../Experience";
+import Experience from "./Experience";
 
 // Images
 import wavesTop from "../../images/waves-top.svg";
@@ -11,12 +11,17 @@ function Intro() {
       <img src={wavesTop} alt="wave-top" class="intro__border" />
       <h1 className="intro__title">About Me</h1>
       <div className="intro__row">
-        <p className="intro__info">
-          My name is Ray, and I'm a software developer. I am currently studying
-          Computer Science & Engineering at the Ohio State University. I love
-          both front-end and back-end development, and have a big interest in
-          machine learning and AI.
-        </p>
+        <div className="intro__info">
+          <p>
+            I'm <span>Ray Chung</span>, a software developer studying Computer Science
+            and Engineering at the <span>Ohio State University</span>.
+          </p>
+          <br />
+          <p>
+            I love both <span>front-end</span> and <span>back-end</span> development, and have a big
+            interest in <span>machine learning</span> and <span>AI</span>.
+          </p>
+        </div>
         <Experience
           experience={[
             {
@@ -27,7 +32,7 @@ function Intro() {
               info: [
                 "CSE major with AI specialization",
                 "Expected graduation: May 2023",
-                "Major GPA: 4.0"
+                "Major GPA: 4.0",
               ],
             },
             {

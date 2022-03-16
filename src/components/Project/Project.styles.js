@@ -38,6 +38,7 @@ export const Content = styled.div`
     color: rgba(255, 255, 255, 0.8);
     display: block;
     margin-bottom: 1rem;
+    font-family: 'Source Code Pro', monospace;
   }
 
   .logos {

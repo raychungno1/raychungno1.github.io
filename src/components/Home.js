@@ -20,6 +20,7 @@ import linux from "../images/logos/linux.svg"
 import postgresql from "../images/logos/postgresql.svg"
 import rails from "../images/logos/rails.svg"
 import Intro from "./Intro";
+import Skills from "./Skills";
 
 const Home = () => {
 
@@ -54,7 +55,7 @@ const Home = () => {
         <Project
           title={"Data Structs"}
           desc={
-            "A library of data structures implemented in C, including linked lists, search trees, graphs, and more."
+            "A library of data structures implemented in C."
           }
           img={dataStructs}
           techStack={[c, linux]}
@@ -62,6 +63,7 @@ const Home = () => {
         />
       </Featured>
       <Intro />
+      <Skills />
     </>
   );
 };

@@ -7,7 +7,7 @@ const Project = ({ title, desc, img, techStack, link }) => {
   return (
     <a href={link}>
       <Wrapper className="proj">
-        <Image src={img}></Image>
+        <Image src={img} alt=""></Image>
         <Content>
           <div className="title-container">
             <h1>{title}</h1>
