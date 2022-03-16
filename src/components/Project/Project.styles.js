@@ -73,6 +73,7 @@ export const Content = styled.div`
     left: 50%;
     margin-left: -55px;
     transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    outline: 2px solid #976322;
   }
 
   .tooltip:hover .tooltip__text {
