@@ -9,7 +9,7 @@
   width: 100%;
   transform: rotate(180deg) translateY(1%);
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 }
 
 .intro__title {
@@ -25,6 +25,7 @@
   margin: 0 auto;
   justify-content: space-between;
   min-height: 275px;
+  z-index: 2;
 }
 
 .intro__info {
