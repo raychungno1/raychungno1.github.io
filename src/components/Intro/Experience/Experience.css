@@ -17,11 +17,11 @@
   position: absolute;
   min-width: 150px;
   width: 20%;
-  height: 110%;
+  height: 100%;
   background: linear-gradient(
     90deg,
     rgb(61, 64, 77) 0%,
-    rgba(0, 0, 0, 0) 100%
+    rgb(29, 28, 33, 0) 100%
   );
   z-index: 3;
 }
@@ -46,7 +46,7 @@
 
 .progress-bar::after {
   position: absolute;
-  left: -5.5px;
+  left: -5px;
   bottom: -5em;
   width: 5px;
   height: 5em;
@@ -56,11 +56,13 @@
 
 .progress-bar__item {
   position: relative;
-  margin: 1em 0 1em 1em;
+  margin: 1.25rem 0 1.25rem 1.25rem;
   color: rgb(255, 255, 255, 0.6);
   font-size: 1.25rem;
   font-weight: bold;
   letter-spacing: 0.1rem;
+  transform: scale(0.7) translateX(-8.5%);
+  transform-origin: left;
 }
 
 .progress-bar__item.last,
@@ -106,10 +108,10 @@
   overflow-y: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
+  min-height: 100%;
+  /* box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
   0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
-  0 16px 16px rgba(0, 0, 0, 0.1);
+  0 16px 16px rgba(0, 0, 0, 0.1); */
 }
 
 .timeline__info::-webkit-scrollbar {
@@ -120,9 +122,9 @@
 .timeline__event {
   scroll-snap-align: center;
   flex-shrink: 0;
-  background: rgb(29, 28, 33, 0.5);
+  background: rgb(29, 28, 33);
   padding: 0.5em;
-  padding-left: 30%;
+  padding-left: 25%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -131,12 +133,24 @@
 }
 
 @media (min-width: 680px) {
+  .progress-bar__item {
+    transform: scale(1);
+  }
+
   .timeline__event {
     padding-left: 22%;
+  }
+
+  .progress-bar__item {
+    font-size: 1.25rem;
   }
 }
 
 @media (min-width: 1280px) {
+
+  .exp__container::before {
+    left: 12.5px;
+  }
 
   .progress-bar::after {
     position: absolute;

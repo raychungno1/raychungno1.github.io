@@ -65,7 +65,7 @@ export const Content = styled.div`
     color: #fff;
     text-align: center;
     padding: 5px 0;
-    border-radius: 6px;
+    //border-radius: 6px;
     position: absolute;
     z-index: 2;
     width: 110px;
@@ -75,9 +75,10 @@ export const Content = styled.div`
     transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1);
     outline: 2px solid #976322;
   }
-
-  .tooltip:hover .tooltip__text {
-    opacity: 1;
+  @media (hover) {
+    .tooltip:hover .tooltip__text {
+      opacity: 1;
+    }
   }
 
   @media (hover) and (min-width: 680px) {

@@ -31,14 +31,24 @@ function Skills() {
   useEffect(() => {
     const element = ref.current;
     gsap.from(element, { opacity: 0, delay: 1 });
-    
+
     const title = element.querySelector(".skills__title");
     if (!isElementInViewport(title)) {
-        gsap.fromTo(title, fromDefaults, {
-          ...toDefaults,
-          opacity: 0.8,
-          scrollTrigger: { trigger: title, start: "bottom bottom" },
-        });
+      gsap.fromTo(title, fromDefaults, {
+        ...toDefaults,
+        opacity: 0.8,
+        scrollTrigger: { trigger: title, start: "bottom bottom" },
+      });
+    }
+
+    const g = element.querySelector(".skills__grid");
+    const skill = element.querySelectorAll(".skill");
+    if (!isElementInViewport(g)) {
+      gsap.fromTo(skill, fromDefaults, {
+        ...toDefaults,
+        scrollTrigger: { trigger: skill, start: "20% bottom" },
+        stagger: 0.05,
+      });
     }
   }, []);
 

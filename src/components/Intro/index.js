@@ -18,16 +18,22 @@ function Intro() {
     
     const title = element.querySelector(".intro__title");
     if (!isElementInViewport(title)) {
-        gsap.fromTo(title, fromDefaults, {
-          ...toDefaults,
-          opacity: 0.8,
-          scrollTrigger: { trigger: title, start: "bottom bottom" },
-        });
+      gsap.fromTo(title, fromDefaults, {
+        ...toDefaults,
+        opacity: 0.8,
+        scrollTrigger: { trigger: title, start: "bottom bottom" },
+      });
     }
     const info = element.querySelector(".intro__info");
+    const exp = element.querySelector(".exp__container");
     if (!isElementInViewport(info)) {
         gsap.fromTo(info, fromDefaults, {
           ...toDefaults,
+          scrollTrigger: { trigger: info, start: "20% bottom" },
+        });
+        gsap.fromTo(exp, fromDefaults, {
+          ...toDefaults,
+          delay: 0.05,
           scrollTrigger: { trigger: info, start: "20% bottom" },
         });
     }
