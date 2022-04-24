@@ -98,7 +98,7 @@ export const Content = styled.div`
 
 export const Wrapper = styled.div`
   position: relative;
-  height: 200px;
+  height: 250px;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1),
     0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1),
@@ -108,7 +108,15 @@ export const Wrapper = styled.div`
   align-items: flex-end;
   overflow: hidden;
 
+  @media (min-width: 400px) {
+    height: 200px;
+  }
+
   @media (min-width: 680px) {
+    height: 350px;
+  }
+  
+  @media (min-width: 1000px) {
     height: 300px;
   }
 
